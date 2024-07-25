@@ -6,7 +6,7 @@ from importlib.metadata import version as get_package_version
 
 from packaging.version import parse as parse_version
 
-from genai.extensions.langchain.chat_llm import LangChainChatInterface
+from genai.extensions.langchain.chat_llm import LangChainChatInterface, LangChainChatFunctions
 from genai.extensions.langchain.embeddings import LangChainEmbeddingsInterface
 from genai.extensions.langchain.llm import LangChainInterface
 from genai.extensions.langchain.template import (
@@ -37,6 +37,7 @@ _verify_langchain_version()
 
 __all__ = [
     "LangChainInterface",
+    "LangChainChatFunctions",
     "LangChainChatInterface",
     "LangChainEmbeddingsInterface",
     "from_langchain_template",
