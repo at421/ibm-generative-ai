@@ -590,7 +590,7 @@ class LangChainChatFunctions(LangChainChatInterface):
             tools=json.dumps(functions, indent=2)
         )
         formatted_messages = [system_message] + messages
-        if isinstance(formatted_messages[0], SystemMessage) and isinstance(formatted_messages[1], SystemMessage):
+        while (isinstance(formatted_messages[0], SystemMessage) and isinstance(formatted_messages[1], SystemMessage)):
             combined_message = SystemMessage(formatted_messages[0].content + formatted_messages[1].content)
             formatted_messages = [combined_message] + formatted_messages[2:]
         response_message = super()._generate(
